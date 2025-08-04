@@ -65,3 +65,60 @@ namespace OOPConceptsDemo
             return Width * Height;
         }
     }
+
+
+    // 3. INTERFACES
+    interface IMovable
+    {
+        void Move();
+    }
+
+    class Car : IMovable
+    {
+        public void Move()
+        {
+            Console.WriteLine("Car is moving");
+        }
+    }
+
+    class Bicycle : IMovable
+    {
+        public void Move()
+        {
+            Console.WriteLine("Bicycle is moving");
+        }
+    }
+
+    // MAIN METHOD 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Inheritance & Method Overriding ===");
+            Animal genericAnimal = new Animal();
+            Animal dog = new Dog();
+            Animal cat = new Cat();
+
+            genericAnimal.MakeSound();  
+            dog.MakeSound();            
+            cat.MakeSound();            
+
+            Console.WriteLine("\n=== Abstract Classes & Methods ===");
+            Shape circle = new Circle(5); 
+            Shape rectangle = new Rectangle(4, 6); 
+
+            Console.WriteLine($"Area of Circle: {circle.GetArea():F2}");
+            Console.WriteLine($"Area of Rectangle: {rectangle.GetArea():F2}");
+
+            Console.WriteLine("\n=== Interfaces ===");
+            IMovable car = new Car();
+            IMovable bicycle = new Bicycle();
+
+            car.Move();       
+            bicycle.Move();   
+
+            Console.WriteLine("\nPress Enter to exit.");
+            Console.ReadLine();
+        }
+    }
+}
